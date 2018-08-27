@@ -1,0 +1,25 @@
+{
+  "name": "photobooth",
+  "version": "0.1.0",
+  "description": "Photobooth application from Move Your Moment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/react": "^16.4.12",
+    "@types/react-dom": "^16.0.7",
+    "@types/redux": "^3.6.0",
+    "electron": "^2.0.8",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "redux": "^4.0.0",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
