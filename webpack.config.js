@@ -1,12 +1,15 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
+const env = process.env.NODE_ENV
+const isDev = () => env === "development"
+
 module.exports = [{
   target: "electron-main",
-  mode: "development",
+  mode: env,
   entry: "./src/electron/index.ts",
-  devtool: "inline-source-map",
+  devtool: isDev() ? "inline-source-map" : "source-map",
   output: {
-    filename: "electron.bundle.js",
+    filename: "main.js",
     path: __dirname + '/build',
   },
   node: {
@@ -34,15 +37,15 @@ module.exports = [{
   }
 }, {
   target: "electron-renderer",
-  mode: "development",
-  devtool: "inline-source-map",
+  mode: env,
+  devtool: isDev() ? "inline-source-map" : "source-map",
   entry: [
     "./src/react/index.tsx",
     "./src/assets/scss/main.scss",
     "./src/views/index.html",
   ],
   output: {
-    filename: "index.bundle.js",
+    filename: "bundle.js",
     path: __dirname + '/build',
   },
   node: {

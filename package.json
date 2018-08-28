@@ -1,15 +1,51 @@
 {
-  "name": "photobooth",
-  "version": "0.1.0",
-  "description": "Photobooth application from Move Your Moment",
+  "name": "electron-react-typescript",
+  "version": "0.2.0",
+  "description": "Electron, React, Sass and Typescript with ease, using Webpack 4",
+  "keywords": [
+    "electron",
+    "react",
+    "typescript",
+    "sass",
+    "webpack",
+    "boilerplate",
+    "sample",
+    "template"
+  ],
+  "homepage": "https://github.com/lightningspirit/electron-react-typescript",
+  "bugs": {
+    "url": "https://github.com/lightningspirit/electron-react-typescript/issues"
+  },
   "scripts": {
-    "start": "electron ./build/electron.bundle.js",
+    "start": "electron ./build/main.js",
     "clean": "rimraf ./build",
-    "watch": "webpack-cli -w --progress --colors",
+    "clean:release-builds": "rimraf ./release-builds",
+    "watch": "NODE_ENV=development webpack-cli -w --progress --colors",
+    "build": "NODE_ENV=production webpack-cli --progress --colors; echo '{\"main\":\"main.js\"}' > build/package.json",
+    "package": "electron-packager build/ --asar=true --app-version=$npm_package_version --build-version=$(git rev-parse --short HEAD) --prune=true --overwrite --out release-builds/",
+    "package:macos": "npm run package -- --platform=darwin --arch=x64 --icon=$npm_package_config_icons_macos",
+    "package:linux": "npm run package -- --platform=linux --arch=x64 --icon=$npm_package_config_icons_linux",
+    "package:win32": "npm run package -- --platform=win32 --arch=ia32 --icon=$npm_package_config_icons_win32 --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"npm_package_config_appname\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "config": {
+    "appname": "Electron-React-Typescript Sample",
+    "icons": {
+      "macos": "./src/assets/images/icons/icon.icns",
+      "linux": "./src/assets/images/icons/icon.png",
+      "win32": "./src/assets/images/icons/icon.ico"
+    }
+  },
+  "author": {
+    "name": "lightningspirit",
+    "email": "lightningspirit@gmail.com",
+    "url": "https://lightningspir.it/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lightningspirit/electron-react-typescript.git"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/electron": "^1.6.10",
     "@types/electron-is-dev": "^0.3.0",
@@ -21,6 +57,7 @@
     "electron": "^2.0.8",
     "electron-devtools-installer": "^2.2.4",
     "electron-is-dev": "^0.3.0",
+    "electron-packager": "^12.1.1",
     "file-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
