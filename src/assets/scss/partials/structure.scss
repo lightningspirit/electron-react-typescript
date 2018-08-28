@@ -1,0 +1,33 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #fafafa
+}
+
+body {
+  font-family: -apple-system, "Helvetica Neue", Helvetica, sans-serif;
+  background-image: url('../images/electron-background.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.message {
+  position: absolute;
+  bottom: 3%;
+  width: 100vw;
+  text-align: center;
+  
+  p {
+    font-size: 0.9rem;
+    font-weight: 100;
+    font-stretch: expanded;
+    text-transform: uppercase;
+    color: #dadad0;
+
+    small {
+      font-size: 0.6rem;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "module": "ESNext",
+    "target": "es2017",
+    "jsx": "react"
+  }
+}
