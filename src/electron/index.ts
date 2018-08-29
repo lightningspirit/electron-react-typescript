@@ -1,5 +1,5 @@
 import { app, BrowserWindow } from 'electron'
-import { enableReactDevTool } from './debug'
+import enableDevTools from './debug'
 import * as isDev from 'electron-is-dev'
 
 console.log('Initializing...')
@@ -29,7 +29,7 @@ app.on('ready', () => {
   // If is dev, enable react dev tools
   if (isDev) {
     console.warn('Loading in Developer mode')
-    enableReactDevTool()
+    enableDevTools()
   }
 
   createWindow()

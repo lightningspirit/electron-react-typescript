@@ -66,7 +66,7 @@ Executables will be released under `release-builds` directory.
 
 Run the following command the remove old binaries:
 ```bash
-npm run clean-release-builds
+npm run clean:release-builds
 ```
 
 ## TODO
